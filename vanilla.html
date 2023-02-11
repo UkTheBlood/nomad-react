@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>  <!--  HTML 만들기 --- (1) -->
+    <span></span>
+    <button id="btn">Click me</button>
+</body>             
+<script>
+    let counter = 0;
+    const button = document.getElementById("btn");         // JS 가져오기 --- (2)
+    const span = document.querySelector("span")
+    function handleClick() {
+        counter = counter + 1                               // 데이터 가져오기 -- (4)
+        span.innerText = `Total click: ${counter}`;         // HTML 업데이트 --- (5)
+    }
+    button.addEventListener("click", handleClick);          // event 감지 --- (3)
+</script>
+
+</html>
