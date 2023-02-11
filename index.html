@@ -10,7 +10,14 @@
 
 <script>
     const root = document.getElementById("root")
-    const span = React.createElement("span", {id: "sexy-span"}, "hello I am div")
+
+    const Title = <h3 id="title" onMouseEnter={console.log("Enter")}>
+        Hello Title
+    </h3>
+    const jsx_btn =
+        <button style={{ backgroundColor: "tomato", }} onClick={() => console.log("Clicked")} >Click</button>
+
+    const span = React.createElement("span", { id: "sexy-span" }, "hello I am div")
     // "span"은 html 태그와 같은 이름, 
     // 두 번쨰 인자: span에 들어가는 id는 sexy-span
     // style: {border: "1px solid black"} 같은 내용도 가능
@@ -18,13 +25,21 @@
     const btn = React.createElement("button", {
         onClick: () => console.log("Click")     // JS의 addEventListener와 같음
     }, "Click!")
-    const container = React.createElement("div", null, [span, btn]);
 
-    ReactDom.render(container, root) 
+
+    const Container = (
+        <div>
+            <Title /><jsx_btn />
+        </div>
+    )
+
+    const container = React.createElement("div", null, [span, btn]);
+    ReactDom.render(container, root)
     // const span을 id가 root인 div에 넣어준다.
     // 1. JS를 이용해 element를 생성
     // 2. React JS가 위에 JS를 HTML로 번역 
 </script>
+
 </html>
 
 <!-- 
