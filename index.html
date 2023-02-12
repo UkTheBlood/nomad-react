@@ -13,7 +13,7 @@
 
     let counter = 0;
 
-    function reRender () {
+    function reRender() {
         ReactDom.render(<Container />, root)
     }
     function countUp() {
@@ -21,12 +21,16 @@
         reRender();
     }
 
-    const Container = (
-        <div>
-            <h3>Total: {counter}</h3>
-            <button conClick={countUp}>Click</button>
-        </div>
-    )
+    function App() {
+        const data = React.useState();
+        console.log(data)
+        return (
+            <div>
+                <h3>Total: {counter}</h3>
+                <button onClick={countUp}>Click</button>
+            </div>
+        )
+    }
 
     reRender();
 
