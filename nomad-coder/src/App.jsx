@@ -1,22 +1,43 @@
+import { useState, useEffect } from 'react';
 import './App.css';
-import TestBtn from './TestBtn';
 
 function App() {
+  const [counter, setValue] = useState(0);
+  const [keyword, setKeyword] = useState("");
+
+  const onClick = () => setValue((prev) => prev + 1);
+  const onChange = (event) => setKeyword(event.target.value)
+
+  // console.log("call api")
+
+  const iRunOnluOnce = () => {
+    console.log('i run only one')
+  }
+
+  useEffect(iRunOnluOnce, [])
+
+  useEffect(() => {
+    if (keyword !== "" && keyword.length > 5) { 
+      // 비어있지 않고, 5글자 이상의 길이만 state를 update
+      console.log("SEARCH FOR", keyword)
+    }
+  }, [keyword])
+
+  useEffect(() => {
+      console.log("i run when 'counter' changes")
+  }, [counter])   // 새로고침 했을 때에도 적용됨
+
+
+
   return (
     <>
       <div>
-        Hello App
+        <input value={keyword} onChange={onChange} type="text" placeholder="search here..." />
+        <h1>{counter}</h1>
       </div>
-      <TestBtn text={4621}/>
+      <button onClick={onClick}> Click </button>
     </>
-
   );
 }
 
 export default App;
-
-
-// React.memo
-// 부모 컴포넌트가 리렌더링이 되면 자식 컴포넌트도 리렌더링이 일어나는데,
-// 이는 어플리케이션이 느려지게 만드는 원인이 될 수 있음
-// 우리가 props가 변경되지 않는 선에서 컴포넌트를 다시 그릴지 말지 정할 수 있음
