@@ -13,12 +13,11 @@ function HourConverter() {
     return (
         <div>
             <div>
-                <h1 className="hello">Super Converter</h1>
-
+                <h3>Hour to Mt</h3>
                 {/* input 옆에 써주는 글씨로, 
-            누군가 누르면 옆의 input이 클릭됨
-            for은 id를 지정
-        */}
+                    누군가 누르면 옆의 input이 클릭됨
+                    for은 id를 지정
+                */}
                 <label htmlFor="minutes"> Minutes </label>
                 <input
                     value={flipped ? amount * 60 : amount}
