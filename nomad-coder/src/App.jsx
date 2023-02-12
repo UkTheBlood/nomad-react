@@ -1,29 +1,32 @@
-import { useState } from 'react';
 import './App.css';
+import { useState } from 'react';
+
+import ContainConverter from './components/ContainConverter';
 import HourConverter from './components/HourConverter';
 import KmTOMiles from './components/KmTOMiles';
 
 function App() {
+  function Btn({text, big}) {
+    return <button style={{
+      backgroundColor: "tomato",
+      color: "white",
+      padding: "10px 20px",
+      borderRadius: "10px",
+      border: 0,
+      fontSize: big ? 55 : 16,
+    }}>
+      {text}
+    </button>
+  }
 
-  const [index, setIndex] = useState("xx");
-  const onSelect = (event) => {
-    setIndex(event.target.value)
+  function ConfirnBtn() {
+    return <button>ConfirnBtn</button>
   }
 
   return (
     <>
-      <div>
-        <h1>Super Converter</h1>
-      </div>
-      <select value={index} onChange={onSelect}>
-        <option value="xx">Select yout Option</option>
-        <option value="0">Mitutes & Hours</option>
-        <option value="1">Km & Miles</option>
-      </select>
-      <hr />
-      {index === "xx" ? "select your unit" : null}
-      {index === "0" ? <HourConverter /> : null}
-      {index === "1" ? <KmTOMiles /> : null}
+      <Btn text="Save Changes" big={true} />
+      <Btn text="Continue" big={false} />
     </>
 
   );
